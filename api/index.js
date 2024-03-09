@@ -1,7 +1,13 @@
 import express from "express"
 import mongoose from "mongoose"
+import dotenv from "dotenv"
+dotenv.config()
+mongoose.connect(process.env.MONGO).then(()=> {
+    console.log("connected to db")
+}).catch ((err) => {
+    console.log(err)
+})
 
-mongoose.connect("mongodb+srv://netninja:Sona123Test@cluster0.juhwuwp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 const app = express()
 
 app.listen(3000, () => {
